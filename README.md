@@ -3,12 +3,12 @@
 
 ### Table of Contents
 
-| No. | Topic                                                                                                                                                         |
-| --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1   | [Java Util Streams: Introduction]()                                         |
-| 2   | [Methods of Stream: filter and map]()
-| 3   | [Difference between filter and map]()
-| 3   | [Various methods of Streams]()
+| No. | Topic  |
+| --- | -------------------- |
+| 1   | [Java Util Streams: Introduction]() |
+| 2   | [Methods of Stream: filter and map]() |
+| 3   | [Difference between filter and map]()|
+| 3   | [Various methods of Streams]() |
 
 ## Java Util Streams: Introduction
 
