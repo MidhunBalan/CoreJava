@@ -1,5 +1,15 @@
 # CoreJava
 
+
+### Table of Contents
+
+| No. | Topic                                                                                                                                                         |
+| --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | [Java Util Streams: Introduction]()                                         |
+| 2   | [Methods of Stream: filter and map]()
+| 3   | [Difference between filter and map]()
+| 3   | [Various methods of Streams]()
+
 ## Introduction
 
 There are two types of streams are available in Java. One is from java.ip package and another one is from java.util package. 
