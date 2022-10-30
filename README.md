@@ -1,6 +1,6 @@
 # CoreJava
 
-Introduction
+## Introduction
 
 There are two types of streams are available in Java. One is from java.ip package and another one is from java.util package. 
 
