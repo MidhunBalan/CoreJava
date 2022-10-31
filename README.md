@@ -16,7 +16,7 @@ There are two types of streams are available in Java. One is from java.ip packag
 
 Here we will look into the java.util stream which came from 1.8 version. 
 
-`java.io streams` - related to files
+`java.io streams` - related to files and 
 `java.util streams` - related to collections
 
 What is the difference between collection and Streams?
