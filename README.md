@@ -219,7 +219,7 @@ System.out.println("number of elements present in the list which length > 9 is"+
 `sorted(Comparator c) : For customized sorting order`
 
 
-For example:
+For example: natural sorting
 
 ```
  ArrayList<Integer> list = new ArrayList<>();
@@ -236,3 +236,70 @@ List<Integer> list1 = list.stream().sorted().collect(Collectors.toList());
 
 Output:
 `List according to the default natural sorting[0, 5, 10, 15, 20, 25]`
+
+For example : customized sorting
+
+```
+ ArrayList<Integer> list = new ArrayList<>();
+        list.add(0);
+        list.add(10);
+        list.add(20);
+        list.add(5);
+        list.add(15);
+        list.add(25);
+
+        List<Integer> list1 = list.stream().sorted((value1, value2)->value2.compareTo(value1)).collect(Collectors.toList());
+        System.out.println("List according to the customized sorting"+list1);
+```
+
+Output:
+`List according to the customized sorting[25, 20, 15, 10, 5, 0]`
+
+Note : 
+value1.compareTo(value2) means natural sorting
+or
+-value1.compareTo(value2) means reverse order
+or
+value2.compareTo(value1) means reverse order
+
+#### 2.4 Processing by min() and max() method
+
+##### 2.4.1 min(Comparator c)
+Returns minimum value according to specified Comparator.
+
+##### 2.4.2 max(Comparator c)
+Returns maximum value according to specified comparator. 
+
+Examples
+2.4.1: min(Comparator c)
+```
+ ArrayList<Integer> list = new ArrayList<>();
+        list.add(0);
+        list.add(10);
+        list.add(20);
+        list.add(5);
+        list.add(15);
+        list.add(25);
+
+        Integer min = list.stream().min((value1, value2)-> value1.compareTo(value2)).get();
+        System.out.println("Minimum value"+min);
+```
+Output :
+`Minimum value 0`
+
+2.4.1: max(Comparator c)
+
+``` 
+ ArrayList<Integer> list = new ArrayList<>();
+        list.add(0);
+        list.add(10);
+        list.add(20);
+        list.add(5);
+        list.add(15);
+        list.add(25);
+         Integer max = list.stream().max((value1, value2)-> value1.compareTo(value2)).get();
+        System.out.println("Maximum value "+max);
+```
+
+Output :
+`Maximum value 25`
