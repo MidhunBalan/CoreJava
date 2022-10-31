@@ -303,3 +303,110 @@ Output :
 
 Output :
 `Maximum value 25`
+
+#### 2.5 Processing by  using forEach() method
+
+- This method won't return anything
+- This method can take Lambda expression as argument and apply that lambda expression for each element present in stream. 
+
+For example:
+
+``` 
+        ArrayList<String> list = new ArrayList<>();
+        list.add("A");
+        list.add("BB");
+        list.add("CCC");
+
+        list.stream().forEach(value-> System.out.println(value));
+```
+
+Output:
+``` 
+A
+BB
+CCC
+```
+
+Note: where ever lambda expression is there, we can replace it with method reference.
+
+For example:
+``` 
+ list.stream().forEach(System.out::println);
+```
+Output:
+``` 
+A
+BB
+CCC
+```
+
+#### 2.6 Processing by  using toArray() method
+
+- we can use toArray() methods to copy elements present in the Stream into specified array. 
+
+Example:
+
+``` 
+ ArrayList<Integer> list = new ArrayList<>();
+        list.add(0);
+        list.add(10);
+        list.add(20);
+        list.add(5);
+        list.add(15);
+        list.add(25);
+
+        Integer[] array2 = list.stream().toArray(value -> new Integer[value]);
+        System.out.println(Arrays.toString(array2));
+        
+        Integer[] array = list.stream().toArray(Integer[] :: new);
+        System.out.println(Arrays.toString(array));
+```
+
+Output:
+
+``` 
+[0, 10, 20, 5, 15, 25]
+[0, 10, 20, 5, 15, 25]
+```
+
+#### 2.7 Processing by using Stream.of() method 
+
+- we can also apply stream for group of values and for arrays.
+
+7.1 for group of values:
+
+example: 
+``` 
+ Stream<Integer> s = Stream.of(9, 99, 999, 9999, 99999);
+        s.forEach(System.out::println);  // or s.forEach(value-> System.out.println(value));
+```
+
+Output:
+``` 
+9
+99
+999
+9999
+99999
+```
+
+7.1 for arrays
+
+example:
+``` 
+Double[] doubleArray = {100.00, 101.00, 102.00, 103.00, 104.00};
+Stream<Double> s1 = Stream.of(doubleArray);
+s1.forEach(System.out::println);// or s1.forEach(value-> System.out.println(value));
+```
+
+
+Output:
+
+``` 
+100.0
+101.0
+102.0
+103.0
+104.0
+
+```
