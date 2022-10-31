@@ -4,7 +4,8 @@
 ### Table of Contents
 
 | No. | Topic  |
-| --- | -------------------- |
+| --- | ------ |
+|>|Java 8 Features|
 | 1   | [Java Util Streams: Introduction]() |
 | 2   | [Methods of Stream: filter and map]() |
 | 3   | [Difference between filter and map]()|
