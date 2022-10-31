@@ -119,3 +119,120 @@ Output:
 ```
 Output with stream map method[0, 20, 40, 10, 30, 50]
 ```
+
+### How to create a stream object
+
+On any collection object, you have to call the stream method. For example:
+
+```
+Stream s = c.stream();
+```
+
+Explanation on the above one:
+`Stream` - It is an interface present in java.util.stream package
+`c` - In the above example, `c` can be any collection object. 
+`stream()` - This method present inside the collection interface as default method.
+
+### When you are using stream, There are two parts available. 
+
+1. Configuration 
+2. Processing
+
+#### 1. Configuration contains two parts
+
+- Filter mechanism
+- Map mechanism
+
+#### Filtering 
+
+- If we want to filter elements from the collection based on some boolean conditions, then we should go for filtering. 
+- We can configure filter by using filter() method of Stream interface. 
+
+```
+public Stream filter(Predicate<T> t)
+```
+Note: `Predicate<T> t can be boolean valued function or lambda expression`
+
+Example: `Stream s1 = c.stream().filter(value -> value%2 == 0);`
+
+#### Mapping
+
+- If we want to create separate new object for every object present in the collection based on some function, then we should go for mapping mechanism.
+- We can implement mapping by using map() method of Stream interface.
+
+```
+public Stream map(Function<T, R> f)
+```
+
+example:
+```
+Stream s1 = c.stream.map(value -> value*2);
+```
+
+### Difference between filter and map
+
+| filter method| map method |
+|-------| ----|
+|If we want to filter elements from the collection based on some boolean conditions, then we should go for filtering.| If we want to create separate new object for every object present in the collection based on some function, then we should go for mapping mechanism.|
+
+
+#### 2. Processing 
+
+#### 2.1 Processing by collect method
+
+This method collects the elements from the stream and adding to the specified collection. 
+
+Consider we have a list(ArrayList<String> list) with string 
+```
+ArrayList<String> list= new ArrayList();
+list.add("MidhunBalan");
+list.add("Sree");
+list.add("Nithin");
+
+List<String> list1 = list.stream().filter(stringVal -> stringVal.length >= 9).collect(Collectors.toList());
+
+```
+
+```
+List<String> list2 = list.stream().map(stringVal -> stringVal.toUpperCase()).collect(Collectors.toList());
+```
+
+#### 2.2 Processing by count method
+
+The count method returns the number of elements present in the stream. 
+```
+public long count()
+```
+
+for example:
+```
+long count = list.stream.filter(s->s.length()> 9 ).count();
+System.out.println("number of elements present in the list which length > 9 is"+count);
+```
+
+#### 2.3 Processing by sorted method
+
+- we can use sorted() method to sort elements inside stream. 
+- we can sort either based on default natural sorting order or based on our own customized sorting order specified by comparator object.
+
+`sorted() : for default natural order`
+`sorted(Comparator c) : For customized sorting order`
+
+
+For example:
+
+```
+ ArrayList<Integer> list = new ArrayList<>();
+        list.add(0);
+        list.add(10);
+        list.add(20);
+        list.add(5);
+        list.add(15);
+        list.add(25);
+
+List<Integer> list1 = list.stream().sorted().collect(Collectors.toList());
+        System.out.println("List according to the default natural sorting"+list1);
+```
+
+Output:
+`List according to the default natural sorting[0, 5, 10, 15, 20, 25]`
