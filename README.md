@@ -10,6 +10,7 @@
 | 2   | [Methods of Stream: filter and map]() |
 | 3   | [Difference between filter and map]()|
 | 4   | [Various methods of Streams]() |
+| 4   | [Date and Time API(Joda-time API)]() |
 
 ## Java Util Streams: Introduction
 
@@ -411,3 +412,132 @@ Output:
 104.0
 
 ```
+
+## Date and Time API(Joda-time API)
+
+Until 1.7,  these are all the classes available for the date and time. 
+- Date
+- Calendar
+- Timestamp etc...
+
+But these are not recommendable to use and most of the methods are deprecated. Bcz it is not recommended to use in terms of performance. 
+New API came in the 1.8 version. That is Date and Time API, also known as Joda-Time API(developed by joda.org).
+
+1. LocalDate
+2. LocalTime
+3. LocalDateTime
+
+
+Note: The above available from java.time package
+
+To find Local date:
+``` 
+LocalDate date = LocalDate.now();
+System.out.println(date);
+```
+`2022-11-01`
+
+To find local time
+``` 
+LocalTime time = LocalTime.now();
+System.out.println(time);
+```
+`12:09:55.253`
+
+
+Question: How to get year, date and month from LocalDate
+
+``` 
+ LocalDate date = LocalDate.now();
+        System.out.println(date);
+
+        int dd= date.getDayOfMonth();
+        int mm= date.getMonthValue();
+        int yyyy = date.getYear();
+
+        System.out.println(dd+"/"+mm+"/"+yyyy);
+        System.out.printf("%d-%d-%d",dd,mm, yyyy);
+        
+```
+Output :
+``` 
+2022-11-01
+1/11/2022
+1-11-2022
+```
+
+Question: How to get hour, minute, second and nano from LocalTime
+
+``` 
+ LocalTime time = LocalTime.now();
+        int h= time.getHour();
+        int m= time.getMinute();
+        int s= time.getSecond();
+        int n= time.getNano();
+        System.out.printf("%d:%d:%d:%d", h, m, s, n);
+```
+
+Output:
+`12:20:1:638000000`
+
+To handle both date and time in a single class, we can go with LocalDateTime class. 
+
+Example:
+```
+ LocalDateTime dateTime= LocalDateTime.now();
+        System.out.println(dateTime);
+
+        int dd = dateTime.getDayOfMonth();
+        int mm = dateTime.getMonthValue();
+        int yyyy = dateTime.getYear();
+        System.out.printf("%d-%d-%d",dd,mm, yyyy);
+
+        int h = dateTime.getHour();
+        int m = dateTime.getMinute();
+        int s = dateTime.getSecond();
+        int n= dateTime.getNano();
+        System.out.printf("\n%d-%d-%d-%d",h,m,s,n);
+```
+
+Output:
+``` 
+2022-11-01T12:37:25.478
+1-11-2022
+12-37-25-478000000
+```
+
+##### LocalDatetime.of
+
+- To go for a particular time, then we can go for LocalDateTime.of 
+
+Example :
+
+``` 
+LocalDateTime dt = LocalDateTime.of(1995, Month.MAY, 28, 12, 45);
+        System.out.println("\n"+dt);
+```
+Output: 
+`1995-05-28T12:45`
+
+To find after 6 months
+
+`dt.plusMonths(6)`
+
+To find before 6 months
+
+`dt.minusMonths(6)`
+
+
+##### Period
+
+To find period between two date range, we can go for this.
+
+``` 
+LocalDate birthday= LocalDate.of(1992, 8, 4);
+        LocalDate today= LocalDate.now();
+        Period period= Period.between(birthday, today);
+        System.out.println(period.getYears()+"-"+ period.getMonths()+"-"+ period.getDays());
+```
+
+Output:
+`30-2-29`
