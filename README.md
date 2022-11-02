@@ -541,3 +541,45 @@ LocalDate birthday= LocalDate.of(1992, 8, 4);
 
 Output:
 `30-2-29`
+
+##### Year Class
+
+Example :
+
+``` 
+public static void main(String[] args) {
+        int y = 1996;
+        Year year = Year.of(y);
+        if(year.isLeap()){
+            System.out.println("It is a leap year");
+        }else{
+            System.out.println("It is not a leap year");
+        }
+    }
+```
+
+Output:
+`It is a leap year`
+
+##### ZoneId 
+
+Example:
+``` 
+ ZoneId zone= ZoneId.systemDefault();
+        System.out.println(zone);
+```
+Output:
+`Asia/Kolkata`
+
+#### ZonedDateTime class
+
+Example: 
+``` 
+ZoneId zI = ZoneId.of("America/Los_Angeles");
+        ZonedDateTime zt = ZonedDateTime.now(zI);
+        System.out.println(zt);
+
+```
+
+Output:
+`2022-11-01T18:26:36.198-07:00[America/Los_Angeles]`
